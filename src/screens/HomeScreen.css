@@ -1,0 +1,13 @@
+#HomeScreen ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#HomeScreen li{
+    margin: 10px;
+}
+
+.impuestos__card.card {
+    width: 18rem;
+}
