@@ -1,6 +1,6 @@
 import './Sidebar.css'
 import Logo from '../../logo.png';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 function Sidebar({setUser}) {
     const handleCerrarSesion = () => {
@@ -13,28 +13,28 @@ function Sidebar({setUser}) {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/inicio">
+                        <NavLink to="/inicio" >
                             <button type="button" className="btn btn-blue text-start">
                                 <i className="bi bi-house"></i>
                                 <span>Inicio</span>
                             </button>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="/impuestos">
+                        <NavLink to="/impuestos">
                             <button type="button" className="btn btn-blue text-start">
                                 <i className="bi bi-file-earmark-text"></i>
                                 <span>Impuestos</span>
                             </button>
-                        </Link>
+                        </NavLink>
                     </li>
                     <li>
-                        <Link to="">
+                        <NavLink to="">
                             <button type="button" className="btn btn-blue text-start">
                                 <i className="bi bi-columns"></i>
                                 <span>Dashboard</span>
                             </button>
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
                 <ul>

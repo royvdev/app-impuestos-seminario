@@ -37,7 +37,7 @@ main {
   transition: transform 0.2s;
 }
 
-.card:hover {
+.card.card-animated:hover {
   transform: translateY(-8px);
   transition-duration: 0.2s;
 }
@@ -65,4 +65,12 @@ main {
 
 main h2 {
   color: #334257;
+}
+
+.ml-2 {
+  margin-left: 0.6rem;
+}
+
+.mr-2 {
+  margin-right: 0.6rem;
 }

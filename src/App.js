@@ -11,7 +11,7 @@ import LoginScreen from './screens/LoginScreen';
 import ImpuestosScreen from './screens/impuestos/ImpuestosScreen';
 
 function App() {
-	const [loguedUser, setLoguedUser] = useState(null);
+	const [loguedUser, setLoguedUser] = useState(true);
 
 	if (loguedUser) {
 		return (
@@ -22,8 +22,8 @@ function App() {
 					<main>
 						<Routes>
 							<Route index element={<HomeScreen />} />
-							<Route path="inicio" element={<HomeScreen />} />
-							<Route path="impuestos/*" element={<ImpuestosScreen />}/>
+							<Route exact path="inicio" element={<HomeScreen />} />
+							<Route exact path="impuestos/*" element={<ImpuestosScreen />}/>
 						</Routes>
 					</main>
 				</div>

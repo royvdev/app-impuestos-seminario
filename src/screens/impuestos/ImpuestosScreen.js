@@ -12,19 +12,19 @@ function ImpuestosScreen() {
                 <hr />
                 <ul className='d-flex flex-wrap list-unstyled'>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Vencimiento: 30/06/2022">
+                        <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Vencimiento: 30/06/2022" animate={true}>
                             <Link to="IIBB">
                                 <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
                             </Link>
                         </CardBasic>
                     </li>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="SIRADIG" disable={true}>
+                        <CardBasic className="impuestos__card" title="SIRADIG" disable={true} animate={true}>
                             <button type='button' className='btn btn-danger w-100 text-center'>Proximamente</button>
                         </CardBasic>
                     </li>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Bienes Ganaciales" disable={true}>
+                        <CardBasic className="impuestos__card" title="Bienes Ganaciales" disable={true} animate={true}>
                             <button type='button' className='btn btn-danger w-100 text-center'>Proximamente</button>
                         </CardBasic>
                     </li>
@@ -35,7 +35,7 @@ function ImpuestosScreen() {
                 <hr />
                 <ul className='d-flex flex-wrap list-unstyled'>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Vencimiento: 30/06/2022">
+                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Vencimiento: 30/06/2022" animate={true}>
                             <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
                         </CardBasic>
                     </li>
@@ -46,32 +46,32 @@ function ImpuestosScreen() {
                 <hr />
                 <ul className='d-flex flex-wrap list-unstyled'>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Periodo: Mayo 2022">
+                        <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Mayo 2022" animate={true}>
                             <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
                         </CardBasic>
                     </li>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Periodo: Abril 2022">
+                        <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Abril 2022" animate={true}>
                             <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
                         </CardBasic>
                     </li>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Periodo: Marzo 2022">
+                        <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Marzo 2022" animate={true}>
                             <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
                         </CardBasic>
                     </li>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Periodo: Febrero 2022">
+                        <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Febrero 2022" animate={true}>
                             <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
                         </CardBasic>
                     </li>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Periodo: Enero 2022">
+                        <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Enero 2022" animate={true}>
                             <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
                         </CardBasic>
                     </li>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Declaracion Jurada IIBB" subtitle="Periodo: Diciembre 2021">
+                        <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Diciembre 2021" animate={true}>
                             <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
                         </CardBasic>
                     </li>
@@ -86,7 +86,7 @@ function ImpuestosScreen() {
             <Routes>
                 <Route index path="" element={<MainScreen />} />
                 <Route path="" element={<MainScreen />} />
-                <Route path="impuestos/IIBB" element={<IIBBMainScreen />} />
+                <Route path="IIBB/*" element={<IIBBMainScreen />} />
             </Routes>
         </React.Fragment>
     );

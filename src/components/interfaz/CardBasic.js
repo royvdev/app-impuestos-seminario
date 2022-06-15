@@ -1,6 +1,12 @@
 import React from "react";
 
-function CardBasic({ title, subtitle, text, disable, children }) {
+function CardBasic({ title, subtitle, text, disable, className, animate, children }) {
+
+    let defaultClasses = "card overflow-hidden text-disabled ";
+    if(animate){
+        defaultClasses = defaultClasses + "card-animated ";
+    }
+
     const DisabledLayout = () => {
         return (
             <React.Fragment>
@@ -10,12 +16,12 @@ function CardBasic({ title, subtitle, text, disable, children }) {
     }
 
     return (
-        <div className="card impuestos__card overflow-hidden text-disabled">
+        <div className={defaultClasses + className}>
             {disable ? <DisabledLayout /> : null}
-            <div className="card-body">
-                <h5 className="card-title fw-bold">{title}</h5>
-                <h6 className="card-subtitle mb-2 text-muted">{subtitle}</h6>
-                <p className="card-text">{text}</p>
+            <div className="card-body d-flex flex-column justify-content-between h-100">
+                {title ? <h5 className="card-title fw-bold">{title}</h5> : null}
+                {subtitle ? <h6 className="card-subtitle mb-2 text-muted">{subtitle}</h6> : null}
+                {text ? <p className="card-text">{text}</p> : null}
                 {children}
             </div>
         </div>
