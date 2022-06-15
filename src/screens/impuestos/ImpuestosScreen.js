@@ -86,7 +86,7 @@ function ImpuestosScreen() {
             <Routes>
                 <Route index path="" element={<MainScreen />} />
                 <Route path="" element={<MainScreen />} />
-                <Route path="impuestos/IIBB" element={<IIBBMainScreen />} />
+                <Route path="IIBB" element={<IIBBMainScreen />} />
             </Routes>
         </React.Fragment>
     );
