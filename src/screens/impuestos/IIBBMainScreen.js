@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Routes, Route, Link, Navigate } from 'react-router-dom'
 import CargaFacturasScreen from "./CargaFacturasScreen";
+import './IIBBMainScreen.css'
 
 function IIBBMainScreen() {
   const [impuestoData, setImpuestoData] = useState({});
