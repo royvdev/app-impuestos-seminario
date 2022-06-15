@@ -29,7 +29,7 @@ function Sidebar({setUser}) {
                         </Link>
                     </li>
                     <li>
-                        <Link to="">
+                        <Link to="/dashboard">
                             <button type="button" className="btn btn-blue text-start">
                                 <i className="bi bi-columns"></i>
                                 <span>Dashboard</span>
@@ -37,7 +37,7 @@ function Sidebar({setUser}) {
                         </Link>
                     </li>
                     <li>
-                        <Link to="">
+                        <Link to="/pyr">
                             <button type="button" className="btn btn-blue text-start">
                                 <i className="bi bi-columns"></i>
                                 <span>Retenciones y Percepciones</span>

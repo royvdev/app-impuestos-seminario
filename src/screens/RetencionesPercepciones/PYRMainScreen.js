@@ -1,6 +1,6 @@
 import React from "react";
 
-function IIBBMainScreen() {
+function PyRMainScreen() {
     return (
         <React.Fragment>
             <h2>Seleccione un periodo</h2>
@@ -12,4 +12,4 @@ function IIBBMainScreen() {
     );
 }
 
-export default IIBBMainScreen;
+export default PyRMainScreen;
