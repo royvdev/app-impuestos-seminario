@@ -36,6 +36,14 @@ function Sidebar({setUser}) {
                             </button>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="">
+                            <button type="button" className="btn btn-blue text-start">
+                                <i className="bi bi-columns"></i>
+                                <span>Retenciones y Percepciones</span>
+                            </button>
+                        </Link>
+                    </li>
                 </ul>
                 <ul>
                     <li>
