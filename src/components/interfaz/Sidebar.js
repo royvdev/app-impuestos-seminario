@@ -29,12 +29,20 @@ function Sidebar({setUser}) {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to="">
+                        <NavLink to="/dashboard">
                             <button type="button" className="btn btn-blue text-start">
                                 <i className="bi bi-columns"></i>
                                 <span>Dashboard</span>
                             </button>
                         </NavLink>
+                    </li>
+                    <li>
+                        <Link to="/pyr">
+                            <button type="button" className="btn btn-blue text-start">
+                                <i className="bi bi-columns"></i>
+                                <span>Retenciones y Percepciones</span>
+                            </button>
+                        </Link>
                     </li>
                 </ul>
                 <ul>

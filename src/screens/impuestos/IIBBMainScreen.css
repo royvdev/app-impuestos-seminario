@@ -1,0 +1,65 @@
+.datePicker {
+  width: 100%;
+  height: 90%;
+  display: flex;
+  margin-top: 15px;
+}
+
+.yearSelector {
+  width: 40%;
+  height: 100%;
+  background-color: #334257;
+  padding-top: 10px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.monthSelector {
+  width: 60%;
+  height: 100%;
+  background-color: #c4c4c4;
+  border-radius: 0px 10px 10px 0px;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+  height: 40px;
+  margin-top: 15px;
+  border-radius: 10px;
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  background-color: #d9d9d9;
+  cursor: pointer;
+}
+
+.month:hover {
+  background-color: #9e9e9e;
+}
+
+.completado {
+  background-color: #36ae7c;
+}
+
+.completado:hover {
+  background-color: #2e946a;
+}
+
+.porVencer {
+  background-color: #f9d923;
+}
+
+.porVencer:hover {
+  background-color: #e7c91e;
+}
+
+.noCompletado {
+  background-color: #334257;
+  color: white;
+}
+
+.noCompletado:hover {
+  background-color: #2a3748;
+  color: white;
+}
