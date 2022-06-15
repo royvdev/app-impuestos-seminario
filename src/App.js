@@ -9,6 +9,8 @@ import StatusBar from './components/interfaz/StatusBar';
 import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import ImpuestosScreen from './screens/impuestos/ImpuestosScreen';
+import DashboardScreen from './screens/Dashboard-Contador/DashboardScreen';
+import PyRScreen from './screens/RetencionesPercepciones/PyRScreen';
 
 function App() {
 	const [loguedUser, setLoguedUser] = useState(null);
@@ -24,6 +26,8 @@ function App() {
 							<Route index element={<HomeScreen />} />
 							<Route path="inicio" element={<HomeScreen />} />
 							<Route path="impuestos/*" element={<ImpuestosScreen />}/>
+							<Route path="dashboard/*" element={<DashboardScreen />}/>
+							<Route path="pyr/*" element={<PyRScreen />}/>
 						</Routes>
 					</main>
 				</div>
