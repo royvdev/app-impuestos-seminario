@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import * as XLSX from "xlsx/xlsx.mjs";
 
-class ExcelToJson extends React.Component {
+class CsvToJson extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
@@ -70,6 +70,7 @@ class ExcelToJson extends React.Component {
       <div>
         <input
           type="file"
+          accept=".csv"
           id="file"
           ref="fileUploader"
           onChange={this.filePathset.bind(this)}
@@ -86,4 +87,4 @@ class ExcelToJson extends React.Component {
   }
 }
 
-export default ExcelToJson;
+export default CsvToJson;
