@@ -1,5 +1,6 @@
 import React from "react";
 import * as XLSX from "xlsx/xlsx.mjs";
+import { saveDataToLocalStorage, getDataFromLocalStorage } from "./LocalStorageManager.js";
 
 class CsvToJson extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ class CsvToJson extends React.Component {
 
   readFile() {
     var f = this.state.file;
-    var name = f.name;
+    // var name = f.name;
     const reader = new FileReader();
     reader.onload = (evt) => {
       const bstr = evt.target.result;
@@ -37,17 +38,25 @@ class CsvToJson extends React.Component {
 
       const data = XLSX.utils.sheet_to_csv(ws, { header: 1 });
 
-      console.log("Data>>>" + data); // shows that excel data is read
-      console.log(this.convertToJson(data)); // shows data in json format
+      console.log("Data from file >>>" + data); // show file data
+
+      const json_data = this.convertToJson(data);
+
+      saveDataToLocalStorage("facturas", json_data); // save data to localStorage
+
+      console.log(json_data); // shows data in json format
     };
     reader.readAsBinaryString(f);
   }
 
+  loadFromLocalStorage = (key) => {
+    const data = getDataFromLocalStorage(key);
+    console.log(data);
+  };
+
   convertToJson(csv) {
     var lines = csv.split("\n");
-
     var result = [];
-
     var headers = lines[0].split(",");
 
     for (var i = 1; i < lines.length; i++) {
@@ -68,20 +77,11 @@ class CsvToJson extends React.Component {
   render() {
     return (
       <div>
-        <input
-          type="file"
-          accept=".csv"
-          id="file"
-          ref="fileUploader"
-          onChange={this.filePathset.bind(this)}
-        />
-        <button
-          onClick={() => {
-            this.readFile();
-          }}
-        >
-          Read File
-        </button>
+        <input type="file" accept=".csv" id="file" ref="fileUploader" onChange={this.filePathset.bind(this)}/>
+        <br /><br />
+        <button onClick={() => { this.readFile(); }}>Read File</button>
+        <br /><br />
+        <button onClick={() => { this.loadFromLocalStorage("facturas"); }}>Load from localStrorage</button>
       </div>
     );
   }
