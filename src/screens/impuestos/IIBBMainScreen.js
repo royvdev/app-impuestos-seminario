@@ -4,85 +4,94 @@ import CargaFacturasScreen from "./CargaFacturasScreen";
 import './IIBBMainScreen.css'
 
 function IIBBMainScreen() {
-  const [impuestoData, setImpuestoData] = useState({});
-
+  // const [impuestoData, setImpuestoData] = useState({});
   // console.log("Info:", impuestoData);
 
-  /*  Esta pantalla es provisoria y debe ser reemplazada por la definitiva */
   function SeleccionPeriodoScreen() {
 
-    const handleChangePeriodo = (data) => {
-      setImpuestoData({
-        periodo: data.target.value
-      });
-    }
+    // const handleChangePeriodo = (data) => {
+    //   setImpuestoData({
+    //     periodo: data.target.value
+    //   });
+    // }
 
     const dateList = [
-      { year: 2022, months: [ 
-                              // {name: "Diciembre", status: "noCompletado"},
-                              // {name: "Noviembre", status: "noCompletado"},
-                              // {name: "Octubre", status: "noCompletado"},
-                              // {name: "Septiembre", status: "noCompletado"},
-                              // {name: "Agosto", status: "noCompletado"},
-                              {name: "Julio", status: "porVencer"},
-                              {name: "Junio", status: "completado"},
-                              {name: "Mayo", status: "completado"},
-                              {name: "Abril", status: "completado"},
-                              {name: "Marzo", status: "completado"},
-                              {name: "Febrero", status: "completado"},
-                              {name: "Enero", status: "completado"} ] },
+      { id: 0, year: 2022, months: [ 
+                              {num: 12, name: "Diciembre", status: "noCompletado"},
+                              {num: 11, name: "Noviembre", status: "noCompletado"},
+                              {num: 10, name: "Octubre", status: "noCompletado"},
+                              {num: 9, name: "Septiembre", status: "noCompletado"},
+                              {num: 8, name: "Agosto", status: "noCompletado"},
+                              {num: 7, name: "Julio", status: "porVencer"},
+                              {num: 6, name: "Junio", status: "completado"},
+                              {num: 5, name: "Mayo", status: "completado"},
+                              {num: 4, name: "Abril", status: "completado"},
+                              {num: 3, name: "Marzo", status: "completado"},
+                              {num: 2, name: "Febrero", status: "completado"},
+                              {num: 1, name: "Enero", status: "completado"} ] },
 
-      { year: 2021, months: [ {name: "Diciembre", status: "completado"},
-                              {name: "Noviembre", status: "completado"},
-                              {name: "Octubre", status: "completado"},
-                              {name: "Septiembre", status: "completado"},
-                              {name: "Agosto", status: "completado"},
-                              {name: "Julio", status: "completado"},
-                              {name: "Junio", status: "completado"},
-                              {name: "Mayo", status: "completado"},
-                              {name: "Abril", status: "completado"},
-                              {name: "Marzo", status: "completado"},
-                              {name: "Febrero", status: "completado"},
-                              {name: "Enero", status: "completado"} ] },
+      { id: 1, year: 2021, months: [ {num: 12, name: "Diciembre", status: "completado"},
+                              {num: 11, name: "Noviembre", status: "completado"},
+                              {num: 10, name: "Octubre", status: "completado"},
+                              {num: 9, name: "Septiembre", status: "completado"},
+                              {num: 8, name: "Agosto", status: "completado"},
+                              {num: 7, name: "Julio", status: "completado"},
+                              {num: 6, name: "Junio", status: "completado"},
+                              {num: 5, name: "Mayo", status: "completado"},
+                              {num: 4, name: "Abril", status: "completado"},
+                              {num: 3, name: "Marzo", status: "completado"},
+                              {num: 2, name: "Febrero", status: "completado"},
+                              {num: 1, name: "Enero", status: "completado"} ] },
 
-      { year: 2020, months: [ {name: "Diciembre", status: "porVencer"},
-                              {name: "Noviembre", status: "porVencer"},
-                              {name: "Octubre", status: "porVencer"},
-                              {name: "Septiembre", status: "porVencer"},
-                              {name: "Agosto", status: "porVencer"},
-                              {name: "Julio", status: "porVencer"},
-                              {name: "Junio", status: "porVencer"},
-                              {name: "Mayo", status: "porVencer"},
-                              {name: "Abril", status: "porVencer"},
-                              {name: "Marzo", status: "porVencer"},
-                              {name: "Febrero", status: "porVencer"},
-                              {name: "Enero", status: "porVencer"} ] },
+      { id: 2, year: 2020, months: [ {num: 12, name: "Diciembre", status: "porVencer"},
+                              {num: 11, name: "Noviembre", status: "porVencer"},
+                              {num: 10, name: "Octubre", status: "porVencer"},
+                              {num: 9, name: "Septiembre", status: "porVencer"},
+                              {num: 8, name: "Agosto", status: "porVencer"},
+                              {num: 7, name: "Julio", status: "porVencer"},
+                              {num: 6, name: "Junio", status: "porVencer"},
+                              {num: 5, name: "Mayo", status: "porVencer"},
+                              {num: 4, name: "Abril", status: "porVencer"},
+                              {num: 3, name: "Marzo", status: "porVencer"},
+                              {num: 2, name: "Febrero", status: "porVencer"},
+                              {num: 1, name: "Enero", status: "porVencer"} ] },
                               
-      { year: 2019, months: [ {name: "Diciembre", status: "noCompletado"},
-                              {name: "Noviembre", status: "noCompletado"},
-                              {name: "Octubre", status: "noCompletado"},
-                              {name: "Septiembre", status: "noCompletado"},
-                              {name: "Agosto", status: "noCompletado"},
-                              {name: "Julio", status: "porVencer"},
-                              {name: "Junio", status: "completado"},
-                              {name: "Mayo", status: "completado"},
-                              {name: "Abril", status: "completado"},
-                              {name: "Marzo", status: "completado"},
-                              {name: "Febrero", status: "completado"},
-                              {name: "Enero", status: "completado"} ] },                              
-    ];
+      { id: 3, year: 2019, months: [ {num: 12, name: "Diciembre", status: "noCompletado"},
+                              {num: 11, name: "Noviembre", status: "noCompletado"},
+                              {num: 10, name: "Octubre", status: "noCompletado"},
+                              {num: 9, name: "Septiembre", status: "noCompletado"},
+                              {num: 8, name: "Agosto", status: "noCompletado"},
+                              {num: 7, name: "Julio", status: "porVencer"},
+                              {num: 6, name: "Junio", status: "completado"},
+                              {num: 5, name: "Mayo", status: "completado"},
+                              {num: 4, name: "Abril", status: "completado"},
+                              {num: 3, name: "Marzo", status: "completado"},
+                              {num: 2, name: "Febrero", status: "completado"},
+                              {num: 1, name: "Enero", status: "completado"} ] },
+      ];
+
+    const handleYearClick = (months) => {
+      for (let i = 1; i <= 12; i++) {
+        const month = document.getElementById("month-" + i);
+        month.className = 'row ' + months[12 - i].status;
+      }
+    };
+
+    const handleMonthClick = (month) => {
+      console.log("handleMonthClick: " + month);
+    };
 
     const yearList = [];
     const monthList = [];
 
     dateList.forEach((date) => {
-      yearList.push(<li className="row year" onClick={ console.log("testing onClick") }>{date.year}</li>)
+      yearList.push(<li className="row year" onClick={() => handleYearClick(date.months)}>{date.year}</li>)
     });
 
     dateList[0].months.forEach((month) => {
-      monthList.push(<li className={"row " + month.status}>{month.name}</li>)
+      monthList.push(<li id={"month-" + month.num}  className={"row " + month.status} onClick={() => handleMonthClick(month.num)}>{month.name}</li>)
     });
-
+    
     return (
       <React.Fragment>
         <h2>Seleccione un periodo</h2>
