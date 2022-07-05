@@ -1,11 +1,14 @@
 import React, { useState } from "react";
-import { Routes, Route, Link, Navigate } from 'react-router-dom'
+import { Routes, Route, Link, Navigate, useNavigate } from 'react-router-dom'
 import CargaFacturasScreen from "./CargaFacturasScreen";
+import { saveDataToLocalStorage, getDataFromLocalStorage } from "../../components/LocalStorageManager";
 import './IIBBMainScreen.css'
 
 function IIBBMainScreen() {
   // const [impuestoData, setImpuestoData] = useState({});
   // console.log("Info:", impuestoData);
+
+  const navigate = useNavigate();
 
   function SeleccionPeriodoScreen() {
 
@@ -70,22 +73,24 @@ function IIBBMainScreen() {
                               {num: 1, name: "Enero", status: "completado"} ] },
       ];
 
-    const handleYearClick = (months) => {
+    const handleYearClick = (date) => {
       for (let i = 1; i <= 12; i++) {
         const month = document.getElementById("month-" + i);
-        month.className = 'row ' + months[12 - i].status;
+        month.className = 'row ' + date.months[12 - i].status;
       }
+      saveDataToLocalStorage("selectedYear", date.year);
     };
 
     const handleMonthClick = (month) => {
-      console.log("handleMonthClick: " + month);
+      saveDataToLocalStorage("selectedMonth", month);
+      navigate("/impuestos/IIBB/facturacion");
     };
 
     const yearList = [];
     const monthList = [];
 
     dateList.forEach((date) => {
-      yearList.push(<li className="row year" onClick={() => handleYearClick(date.months)}>{date.year}</li>)
+      yearList.push(<li className="row year" onClick={() => handleYearClick(date)}>{date.year}</li>)
     });
 
     dateList[0].months.forEach((month) => {
