@@ -11,6 +11,8 @@ import LoginScreen from './screens/LoginScreen';
 import ImpuestosScreen from './screens/impuestos/ImpuestosScreen';
 import DashboardScreen from './screens/Dashboard-Contador/DashboardScreen';
 import PyRScreen from './screens/RetencionesPercepciones/PyRScreen';
+import AgregarPercepScreen from './screens/RetencionesPercepciones/AgregarPercepcionesScreen';
+import AgregarRetencionesScreen from './screens/RetencionesPercepciones/AgregarRetencionesScreen';
 
 function App() {
 	const [loguedUser, setLoguedUser] = useState(true);
@@ -27,7 +29,9 @@ function App() {
 							<Route path="inicio" element={<HomeScreen />} />
 							<Route path="impuestos/*" element={<ImpuestosScreen />}/>
 							<Route path="dashboard/*" element={<DashboardScreen />}/>
-							<Route path="pyr/*" element={<PyRScreen />}/>
+							<Route path="pyr" element={<PyRScreen />}/>
+							<Route path="pyr/Percepciones" element={<AgregarPercepScreen />}/>
+							<Route path="pyr/Retenciones" element={<AgregarRetencionesScreen />}/>
 						</Routes>
 					</main>
 				</div>
