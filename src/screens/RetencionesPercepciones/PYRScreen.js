@@ -13,54 +13,15 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import {Link} from 'react-router-dom';
+import * as file from '../../components/LocalStorageManager';
+
 
 function createData(name, cuit, fecha, nrosucursal, nroemision) {
     return { name, cuit, fecha, nrosucursal, nroemision };
   }
   
-const rowsP = [
-  { cuit: "20-34374609-2",
-    fecha: "15/02/1989",
-    tipoComprobante: "pepe",
-    nroComprobante: "123123",
-    importe: "105.32"
-  },
-  { cuit: "20-34374609-2",
-    fecha: "15/02/1989",
-    tipoComprobante: "pepe",
-    nroComprobante: "123123",
-    importe: "105.32"
-  },
-  { cuit: "20-34374609-2",
-    fecha: "15/02/1989",
-    tipoComprobante: "pepe",
-    nroComprobante: "123123",
-    importe: "105.32"
-  },
-  { cuit: "20-34374609-2",
-    fecha: "15/02/1989",
-    tipoComprobante: "pepe",
-    nroComprobante: "123123",
-    importe: "105.32"
-  }
-]
-
-const rowsR = [
-  { cuit: "20-34374609-2",
-    fecha: "15/02/1989",
-    nroSucursal: "123123",
-    nroEmision: "pepe",
-    importe: "105.32"
-  }
-]
-
-  const rows = [
-    createData('Frozen yoghurt', 159, 6.0, 24, 0),
-    createData('Ice cream sandwich', 237, 9.0, 0, 4.3),
-    createData('Eclair', 262, 16.0, 24, 0),
-    createData('Cupcake', 305, 3.7, 4.3, 0),
-    createData('Gingerbread', 16.0, 49, 3.9, 0),
-];
+const rowsP = require('./percepciones.json')
+const rowsR = require('./retenciones.json'); 
   
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -179,7 +140,7 @@ export default function BasicTabs() {
         </TableContainer>
       </TabPanel>
       <Link to={buttonRedirect} >
-        <Button variant="contained" style={{float: 'right'}}  > Agregar { buttonText }</Button>
+        <Button variant="contained" style={{float: 'right'}} > Agregar { buttonText }</Button>
       </Link>
     </Box>
   );

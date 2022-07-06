@@ -4,7 +4,22 @@ import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {Link} from 'react-router-dom';
+import * as file from '../../components/LocalStorageManager';
 
+var rowsP = require('./percepciones.json')
+
+function writeToJson(){
+  rowsP.push({ "cuit": "20-322329-2",
+  "fecha": "15/02/1989",
+  "tipoComprobante": "A",
+  "nroComprobante": "123123",
+  "importe": "105.32"
+  });
+  // console.log(rowsP);
+  let json = JSON.stringify(rowsP);
+  console.log(json)
+  file.saveDataToLocalStorage('percepciones.json', {json})
+}
 
 const validationSchema = yup.object({
   email: yup
@@ -17,8 +32,8 @@ const validationSchema = yup.object({
     .required('Password is required'),
 });
 
-
 export default function AgregarPercepciones() {
+  
   const formik = useFormik({
     initialValues: {
       email: 'foobar@example.com',
@@ -71,7 +86,7 @@ return (
           label="Importe de Percepción"
           onChange={formik.handleChange}
         />
-        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/pyr" >
+        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/pyr" onClick={writeToJson} >
           Submit
         </Button>
       </form>
