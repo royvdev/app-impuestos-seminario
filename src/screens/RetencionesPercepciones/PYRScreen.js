@@ -13,10 +13,47 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import {Link} from 'react-router-dom';
+
 function createData(name, cuit, fecha, nrosucursal, nroemision) {
     return { name, cuit, fecha, nrosucursal, nroemision };
   }
   
+const rowsP = [
+  { cuit: "20-34374609-2",
+    fecha: "15/02/1989",
+    tipoComprobante: "pepe",
+    nroComprobante: "123123",
+    importe: "105.32"
+  },
+  { cuit: "20-34374609-2",
+    fecha: "15/02/1989",
+    tipoComprobante: "pepe",
+    nroComprobante: "123123",
+    importe: "105.32"
+  },
+  { cuit: "20-34374609-2",
+    fecha: "15/02/1989",
+    tipoComprobante: "pepe",
+    nroComprobante: "123123",
+    importe: "105.32"
+  },
+  { cuit: "20-34374609-2",
+    fecha: "15/02/1989",
+    tipoComprobante: "pepe",
+    nroComprobante: "123123",
+    importe: "105.32"
+  }
+]
+
+const rowsR = [
+  { cuit: "20-34374609-2",
+    fecha: "15/02/1989",
+    nroSucursal: "123123",
+    nroEmision: "pepe",
+    importe: "105.32"
+  }
+]
+
   const rows = [
     createData('Frozen yoghurt', 159, 6.0, 24, 0),
     createData('Ice cream sandwich', 237, 9.0, 0, 4.3),
@@ -63,8 +100,6 @@ export default function BasicTabs() {
   const tbs = ["Percepciones", "Retenciones"];
   const [buttonText, setButtonText] = React.useState(tbs[0]);
   const [buttonRedirect, setButtonRedirect] = React.useState(tbs[0]);
-  
-  const changeText = (text) => setButtonText({value});
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -94,18 +129,17 @@ export default function BasicTabs() {
             </TableRow>
             </TableHead>
             <TableBody>
-            {rows.map((row) => (
+            {rowsP.map((row) => (
                 <TableRow
                 key={row.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                 <TableCell component="th" scope="row">
-                    {row.name}
+                    {row.cuit}
                 </TableCell>
-                <TableCell align="right">{row.cuit}</TableCell>
                 <TableCell align="right">{row.fecha}</TableCell>
-                <TableCell align="right">{row.nrosucursal}</TableCell>
-                <TableCell align="right">{row.nroemision}</TableCell>
+                <TableCell align="right">{row.tipoComprobante}</TableCell>
+                <TableCell align="right">{row.nroComprobante}</TableCell>
                 <TableCell align="right">{row.importe}</TableCell>
                 </TableRow>
             ))}
@@ -126,18 +160,17 @@ export default function BasicTabs() {
             </TableRow>
             </TableHead>
             <TableBody>
-            {rows.map((row) => (
+            {rowsR.map((row) => (
                 <TableRow
                 key={row.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                 >
                 <TableCell component="th" scope="row">
-                    {row.name}
+                    {row.cuit}
                 </TableCell>
-                <TableCell align="right">{row.cuit}</TableCell>
                 <TableCell align="right">{row.fecha}</TableCell>
-                <TableCell align="right">{row.nrosucursal}</TableCell>
-                <TableCell align="right">{row.nroemision}</TableCell>
+                <TableCell align="right">{row.nroSucursal}</TableCell>
+                <TableCell align="right">{row.nroEmision}</TableCell>
                 <TableCell align="right">{row.importe}</TableCell>
                 </TableRow>
             ))}
