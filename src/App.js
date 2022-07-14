@@ -10,7 +10,7 @@ import HomeScreen from './screens/HomeScreen';
 import LoginScreen from './screens/LoginScreen';
 import ImpuestosScreen from './screens/impuestos/ImpuestosScreen';
 import DashboardScreen from './screens/Dashboard-Contador/DashboardScreen';
-import PyRScreen from './screens/RetencionesPercepciones/PyRScreen';
+import PyRScreen from './screens/RetencionesPercepciones/PYRScreen';
 import AgregarPercepScreen from './screens/RetencionesPercepciones/AgregarPercepcionesScreen';
 import AgregarRetencionesScreen from './screens/RetencionesPercepciones/AgregarRetencionesScreen';
 
