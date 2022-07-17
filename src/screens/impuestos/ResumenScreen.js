@@ -76,6 +76,9 @@ const dummy = {
     ]
 }
 
+// Agregar alicuota
+// Total facturado = total * alicuota - deducciones
+
 export default function ResumenScreen() {
     const impuestoData = DB.getDataFromLocalStorage("facturacionFormData");
     const periodo = {
@@ -101,6 +104,7 @@ export default function ResumenScreen() {
                                 </Tooltip>
                             </th>
                             <th className="col" scope="col">Total Facturado</th>
+                            <th className="col" scope="col">Alicuota</th>
                             <th className="col" scope="col">Total a declarar</th>
                         </tr>
                     </thead>
@@ -112,7 +116,8 @@ export default function ResumenScreen() {
                                     <td className="col">{element.provincia.nombre}</td>
                                     <td className="col">{"$-" + Intl.NumberFormat('es-AR').format(element.total)}</td>
                                     <td className="col">{"$" + Intl.NumberFormat('es-AR').format(element.total)}</td>
-                                    <td className="col">{"$" + Intl.NumberFormat('es-AR').format(element.total)}</td>
+                                    <td className="col">{"%" + Intl.NumberFormat('es-AR').format(element.actividad.alicuota)}</td>
+                                    <td className="col">{"$" + Intl.NumberFormat('es-AR').format(element.total * (element.actividad.alicuota / 100))}</td>
                                 </tr>
                             );
                         })}

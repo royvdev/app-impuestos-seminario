@@ -31,7 +31,7 @@ function ImpuestosScreen() {
                         </li>
                     </ul>
                 </article>
-                <article className='mb-5'>
+                {/* <article className='mb-5'>
                     <h2>Proximos vencimientos</h2>
                     <hr />
                     <ul className='d-flex flex-wrap list-unstyled'>
@@ -41,7 +41,7 @@ function ImpuestosScreen() {
                             </CardBasic>
                         </li>
                     </ul>
-                </article>
+                </article> */}
                 <article className='mb-5'>
                     <h2>Impuestos recientes</h2>
                     <hr />

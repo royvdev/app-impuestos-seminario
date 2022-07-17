@@ -68,11 +68,14 @@ export function addUploadedData(key) {
             total: monto_total
         };
 
+        console.log("Totales por PV", totales);
         // setProvinciasList(newList);
         // let newData = impuestoData;
         // newData.totalesPorProvincia.push(totales);
         // setImpuestoData(newData);
     });
+
+
 };
 
 export default function CargaFacturasScreen() {
@@ -278,7 +281,7 @@ export default function CargaFacturasScreen() {
             <hr />
             <div className="mt-4 mb-3 d-flex justify-content-between align-items-stretch">
                 <section className="w-50 mr-2">
-                    <CardBasic title="Calculo automatico" animate={true} >
+                    <CardBasic title="Carga automatica" animate={true} >
                         <div className="mb-3">
                             <h6 className="card-subtitle mb-2 text-danger">(Opcion recomendada)</h6>
                             <p className="card-text">Realiza el calculo automaticamente a partir de la suma de los totales de factura</p>
@@ -288,7 +291,7 @@ export default function CargaFacturasScreen() {
                 </section>
                 <section className="w-50 ml-2">
                     <CardBasic className="h-100" animate={true} >
-                        <h5 className="card-title fw-bold">Calculo manual</h5>
+                        <h5 className="card-title fw-bold">Carga manual</h5>
                         <p className="card-text">Calcular e ingresar manualmente los totales facturados por cada punto de venta</p>
                         {/* <button type='button' className='btn btn-blue w-100 text-center' data-bs-toggle="modal" data-bs-target="#ModalCargaManualFact">Cargar</button> */}
                         <button type='button' className='btn btn-blue w-100 text-center' data-bs-toggle="collapse" data-bs-target="#collapseCargaManual" aria-expanded="false" aria-controls="collapseCargaManual"
