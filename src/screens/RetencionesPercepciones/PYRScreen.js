@@ -12,17 +12,19 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as file from '../../components/LocalStorageManager';
+import { NavLink } from 'react-router-dom'
+
 
 
 function createData(name, cuit, fecha, nrosucursal, nroemision) {
-    return { name, cuit, fecha, nrosucursal, nroemision };
-  }
-  
+  return { name, cuit, fecha, nrosucursal, nroemision };
+}
+
 const rowsP = require('./percepciones.json')
-const rowsR = require('./retenciones.json'); 
-  
+const rowsR = require('./retenciones.json');
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -69,79 +71,92 @@ export default function BasicTabs() {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
-          <Tab label="Percepciones" {...a11yProps(0)} />
-          <Tab label="Retenciones" {...a11yProps(1)} />
-        </Tabs>
-      </Box>
-      
-      <TabPanel value={value} index={0} >
-        <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-            <TableRow>
-                <TableCell align="left">CUIT</TableCell>
-                <TableCell align="right">Fecha</TableCell>
-                <TableCell align="right">Tipo Comprobante</TableCell>
-                <TableCell align="right">Nro Comprobante</TableCell>
-                <TableCell align="right">Importe</TableCell>
-            </TableRow>
-            </TableHead>
-            <TableBody>
-            {rowsP.map((row) => (
-                <TableRow
-                key={row.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                <TableCell component="th" scope="row">
-                    {row.cuit}
-                </TableCell>
-                <TableCell align="right">{row.fecha}</TableCell>
-                <TableCell align="right">{row.tipoComprobante}</TableCell>
-                <TableCell align="right">{row.nroComprobante}</TableCell>
-                <TableCell align="right">{row.importe}</TableCell>
-                </TableRow>
-            ))}
-            </TableBody>
-        </Table>
-        </TableContainer>
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
-            <TableHead>
-            <TableRow>
-                <TableCell align="left">CUIT</TableCell>
-                <TableCell align="right">Fecha</TableCell>
-                <TableCell align="right">Nro Sucursal</TableCell>
-                <TableCell align="right">Nro Emision</TableCell>
-                <TableCell align="right">Importe</TableCell>
-            </TableRow>
-            </TableHead>
-            <TableBody>
-            {rowsR.map((row) => (
-                <TableRow
-                key={row.name}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                >
-                <TableCell component="th" scope="row">
-                    {row.cuit}
-                </TableCell>
-                <TableCell align="right">{row.fecha}</TableCell>
-                <TableCell align="right">{row.nroSucursal}</TableCell>
-                <TableCell align="right">{row.nroEmision}</TableCell>
-                <TableCell align="right">{row.importe}</TableCell>
-                </TableRow>
-            ))}
-            </TableBody>
-        </Table>
-        </TableContainer>
-      </TabPanel>
-      <Link to={buttonRedirect} >
-        <Button variant="contained" style={{float: 'right'}} > Agregar { buttonText }</Button>
-      </Link>
-    </Box>
+    <React.Fragment>
+      <div className='d-flex flex-column'>
+        <Box sx={{ width: '100%' }}>
+          <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+            <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+              <Tab label="Percepciones" {...a11yProps(0)} />
+              <Tab label="Retenciones" {...a11yProps(1)} />
+            </Tabs>
+          </Box>
+
+          <TabPanel value={value} index={0} >
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="left">CUIT</TableCell>
+                    <TableCell align="right">Fecha</TableCell>
+                    <TableCell align="right">Tipo Comprobante</TableCell>
+                    <TableCell align="right">Nro Comprobante</TableCell>
+                    <TableCell align="right">Importe</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rowsP.map((row) => (
+                    <TableRow
+                      key={row.name}
+                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        {row.cuit}
+                      </TableCell>
+                      <TableCell align="right">{row.fecha}</TableCell>
+                      <TableCell align="right">{row.tipoComprobante}</TableCell>
+                      <TableCell align="right">{row.nroComprobante}</TableCell>
+                      <TableCell align="right">{row.importe}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </TabPanel>
+          <TabPanel value={value} index={1}>
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 650 }} aria-label="simple table">
+                <TableHead>
+                  <TableRow>
+                    <TableCell align="left">CUIT</TableCell>
+                    <TableCell align="right">Fecha</TableCell>
+                    <TableCell align="right">Nro Sucursal</TableCell>
+                    <TableCell align="right">Nro Emision</TableCell>
+                    <TableCell align="right">Importe</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {rowsR.map((row) => (
+                    <TableRow
+                      key={row.name}
+                      sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                    >
+                      <TableCell component="th" scope="row">
+                        {row.cuit}
+                      </TableCell>
+                      <TableCell align="right">{row.fecha}</TableCell>
+                      <TableCell align="right">{row.nroSucursal}</TableCell>
+                      <TableCell align="right">{row.nroEmision}</TableCell>
+                      <TableCell align="right">{row.importe}</TableCell>
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </TabPanel>
+          <Link to={buttonRedirect} >
+            <Button variant="contained" style={{ float: 'right' }} > Agregar {buttonText}</Button>
+          </Link>
+        </Box>
+        <hr />
+        <div className="d-flex flex-row">
+          <NavLink to="../facturacion" className="w-100">
+            <button type='button' className='btn btn-secondary w-100 text-center mr-2'>Anterior</button>
+          </NavLink>
+          <NavLink to="../resumen" className="w-100">
+            <button type='button' className='btn btn-success w-100 text-center ml-2'>Siguiente</button>
+          </NavLink>
+        </div>
+      </div>
+    </React.Fragment>
   );
 }

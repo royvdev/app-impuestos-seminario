@@ -2,7 +2,7 @@ import './Sidebar.css'
 import Logo from '../../logo.png';
 import { NavLink } from 'react-router-dom';
 
-function Sidebar({setUser}) {
+function Sidebar({ setUser }) {
     const handleCerrarSesion = () => {
         setUser(null);
     };
@@ -36,18 +36,12 @@ function Sidebar({setUser}) {
                             </button>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/pyr">
-                            <button type="button" className="btn btn-blue text-start">
-                                <i className="bi bi-columns"></i>
-                                <span>Retenciones y Percepciones</span>
-                            </button>
-                        </NavLink>
-                    </li>
                 </ul>
                 <ul>
                     <li>
-                        <button type="button" className="btn btn-secondary">Mi perfil</button>
+                        <NavLink to="/perfil">
+                            <button type="button" className="btn btn-secondary">Mi perfil</button>
+                        </NavLink>
                     </li>
                     <li>
                         <button type="button" className="btn btn-danger" onClick={handleCerrarSesion} >Cerrar Sesion</button>
