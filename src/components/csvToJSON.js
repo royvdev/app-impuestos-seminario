@@ -1,6 +1,7 @@
 import React from "react";
 import * as XLSX from "xlsx/xlsx.mjs";
 import { saveDataToLocalStorage, getDataFromLocalStorage } from "./LocalStorageManager.js";
+import { addUploadedData } from "../screens/impuestos/CargaFacturasScreen.js";
 
 class CsvToJson extends React.Component {
   constructor(props) {
@@ -22,11 +23,14 @@ class CsvToJson extends React.Component {
     console.log(file);
     this.setState({ file });
 
-    console.log(this.state.file);
+    if (file !== undefined)
+    {
+      this.readFile(file)
+    }
   }
 
-  readFile() {
-    var f = this.state.file;
+  readFile(f) {
+    // var f = this.state.file;
     // var name = f.name;
     const reader = new FileReader();
     reader.onload = (evt) => {
@@ -38,13 +42,15 @@ class CsvToJson extends React.Component {
 
       const data = XLSX.utils.sheet_to_csv(ws, { header: 1 });
 
-      console.log("Data from file >>>" + data); // show file data
+      // console.log("Data from file >>>" + data); // show file data
 
       const json_data = this.convertToJson(data);
 
-      saveDataToLocalStorage("facturas", json_data); // save data to localStorage
+      saveDataToLocalStorage(this.props.key, json_data); // save data to localStorage
 
-      console.log(json_data); // shows data in json format
+      // console.log(json_data); // shows data in json format
+
+      addUploadedData(this.props.key);
     };
     reader.readAsBinaryString(f);
   }
@@ -77,11 +83,13 @@ class CsvToJson extends React.Component {
   render() {
     return (
       <div>
-        <input type="file" accept=".csv" id="file" ref="fileUploader" onChange={this.filePathset.bind(this)}/>
-        <br /><br />
+        <input type="button" className='btn btn-success w-100 text-center' id="import_button" value="Importar CSV" onClick={() => { document.getElementById('file').click() }}></input>
+        <input type="file" className="d-none" accept=".csv" id="file" ref="fileUploader" onChange={ this.filePathset.bind(this) } />
+        {/* <input type="file" accept=".csv" id="file" ref="fileUploader" onChange={this.filePathset.bind(this)}/>
+        <br /><br />  
         <button onClick={() => { this.readFile(); }}>Read File</button>
         <br /><br />
-        <button onClick={() => { this.loadFromLocalStorage("facturas"); }}>Load from localStrorage</button>
+        <button onClick={() => { this.loadFromLocalStorage("facturas"); }}>Load from localStrorage</button> */}
       </div>
     );
   }
