@@ -5,7 +5,8 @@ import provincias from '../../data/data_dummy/provincias.json';
 import actividades from '../../data/data_dummy/actividades.json';
 import { NavLink } from 'react-router-dom';
 import * as DB from '../../components/LocalStorageManager';
-
+import CSVImportButton from "../../components/csvToJSON";
+import {getDataFromLocalStorage} from "../../components/LocalStorageManager.js";
 
 const dummy_data = {
     ingresoAnioAnterior: 2500220,
@@ -35,6 +36,44 @@ function inicializarFormData(params) {
         totalesPorProvincia: []
     });
 }
+export function addUploadedData(key) {
+    const data = getDataFromLocalStorage(key);
+    const json_facturas = JSON.parse(data);
+
+    console.log(json_facturas);
+
+    var totales_pv = {};
+
+    json_facturas.forEach(factura => {
+        var punto_venta = factura['Punto de Venta'];
+        var total_no_gravado = factura['Imp. Neto No Gravado'];
+
+        var previous_value = (punto_venta in totales_pv) ? totales_pv[punto_venta] : 0;
+
+        totales_pv[punto_venta] = parseFloat(total_no_gravado) + previous_value;
+    });
+ 
+    Object.keys(totales_pv).forEach(pv => {
+        var monto_total = totales_pv[pv];
+
+        console.log('punto de venta: ' + pv + ' / total: ' + monto_total);
+
+        // const newList = this.CargaFacturasScreen.provinciasList.filter(data => data.id !== e.target.inputProvincia.value);
+        // const provincia = this.CargaFacturasScreen.provinciasList.filter(data => data.id === e.target.inputProvincia.value)[0];
+        
+        // const montoTotal = Number.parseInt(e.target.inputMontoTotal.value);
+
+        const totales = {
+            provincia: pv,
+            total: monto_total
+        };
+
+        // setProvinciasList(newList);
+        // let newData = impuestoData;
+        // newData.totalesPorProvincia.push(totales);
+        // setImpuestoData(newData);
+    });
+};
 
 export default function CargaFacturasScreen() {
     const provinciasList = provincias.sort((a, b) => {
@@ -244,7 +283,7 @@ export default function CargaFacturasScreen() {
                             <h6 className="card-subtitle mb-2 text-danger">(Opcion recomendada)</h6>
                             <p className="card-text">Realiza el calculo automaticamente a partir de la suma de los totales de factura</p>
                         </div>
-                        <button type='button' className='btn btn-success w-100 text-center'>Importar Excel</button>
+                        <CSVImportButton key="facturas"/>
                     </CardBasic>
                 </section>
                 <section className="w-50 ml-2">
