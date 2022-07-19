@@ -13,7 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-import * as file from '../../components/LocalStorageManager';
+import * as File from '../../components/LocalStorageManager';
 import { NavLink } from 'react-router-dom'
 
 
@@ -22,8 +22,9 @@ function createData(name, cuit, fecha, nrosucursal, nroemision) {
   return { name, cuit, fecha, nrosucursal, nroemision };
 }
 
-const rowsP = require('./percepciones.json')
-const rowsR = require('./retenciones.json');
+let rowsP = []
+let rowsR = []
+
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -69,6 +70,29 @@ export default function BasicTabs() {
     setButtonText(tbs[newValue])
     setButtonRedirect(tbs[newValue])
   };
+
+  if (!File.getDataFromLocalStorage('percepciones') && !File.getDataFromLocalStorage('retenciones')) {
+    
+    File.saveDataToLocalStorage('percepciones', require('./percepciones.json'))
+    File.saveDataToLocalStorage('retenciones', require('./retenciones.json'))
+    const auxP = File.getDataFromLocalStorage('percepciones')
+    const auxR = File.getDataFromLocalStorage('retenciones')
+
+    Object.keys(auxP).forEach(function(key) {
+      rowsP.push(auxP[key]);
+    });
+
+    Object.keys(auxR).forEach(function(key) {
+      rowsR.push(auxR[key]);
+    });
+
+    
+  } else {
+
+    rowsP = File.getDataFromLocalStorage('percepciones'); 
+    rowsR = File.getDataFromLocalStorage('retenciones'); 
+    
+  }
 
   return (
     <React.Fragment>
