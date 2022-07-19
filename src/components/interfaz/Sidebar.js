@@ -36,14 +36,6 @@ function Sidebar({ setUser }) {
                             </button>
                         </NavLink>
                     </li>
-                    <li>
-                        <NavLink to="/pyr">
-                            <button type="button" className="btn btn-blue text-start">
-                                <i className="bi bi-columns"></i>
-                                <span>Percepciones y Retenciones</span>
-                            </button>
-                        </NavLink>
-                    </li>
                 </ul>
                 <ul>
                     <li>
