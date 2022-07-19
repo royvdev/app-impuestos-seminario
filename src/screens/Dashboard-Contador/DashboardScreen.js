@@ -8,7 +8,7 @@ function DashboardScreen() {
         return (
             <React.Fragment>
                 <article className='mb-5'>
-                <h2>Dashboard Contador</h2>
+                <h2>Dashboard Gestor</h2>
                 <hr />
                 <ul className='d-flex flex-wrap list-unstyled'>
                     <li className='m-3 d-flex align-content-stretch'>

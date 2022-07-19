@@ -4,6 +4,25 @@ import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {Link} from 'react-router-dom';
+import * as File from '../../components/LocalStorageManager';
+
+
+function writeToJson(){
+  let rowsR = []
+
+  const auxR = File.getDataFromLocalStorage('retenciones')
+
+  Object.keys(auxR).forEach(function(key) {
+    rowsR.push(auxR[key]);
+    });
+    rowsR.push({ "cuit": "20-322329-2",
+    "fecha": "06/07/2022",
+    "nroSucursal": "A",
+    "nroEmision": "123123",
+    "importe": "100"
+    });
+  File.saveDataToLocalStorage('retenciones', rowsR)
+}
 
 
 const validationSchema = yup.object({
@@ -71,7 +90,7 @@ return (
           label="Importe de Retencion"
           onChange={formik.handleChange}
         />
-        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/pyr" >
+        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/pyr" onClick={writeToJson}>
           Submit
         </Button>
       </form>

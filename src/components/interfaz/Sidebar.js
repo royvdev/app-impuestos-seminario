@@ -9,7 +9,7 @@ function Sidebar({ setUser }) {
 
     return (
         <aside className='sidebar__container'>
-            <img src={Logo} alt='Logo' />
+            <img src={Logo} alt='Logo' style={{width: '100%'}} />
             <nav>
                 <ul>
                     <li>
@@ -33,6 +33,14 @@ function Sidebar({ setUser }) {
                             <button type="button" className="btn btn-blue text-start">
                                 <i className="bi bi-columns"></i>
                                 <span>Dashboard</span>
+                            </button>
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to="/pyr">
+                            <button type="button" className="btn btn-blue text-start">
+                                <i className="bi bi-columns"></i>
+                                <span>Percepciones y Retenciones</span>
                             </button>
                         </NavLink>
                     </li>
