@@ -9,7 +9,7 @@ function Sidebar({ setUser }) {
 
     return (
         <aside className='sidebar__container'>
-            <img src={Logo} alt='Logo' />
+            <img src={Logo} alt='Logo' style={{width: '100%'}} />
             <nav>
                 <ul>
                     <li>
