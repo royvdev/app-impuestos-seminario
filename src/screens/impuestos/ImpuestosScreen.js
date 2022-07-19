@@ -47,6 +47,11 @@ function ImpuestosScreen() {
                     <hr />
                     <ul className='d-flex flex-wrap list-unstyled'>
                         <li className='m-3 d-flex align-content-stretch'>
+                            <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Junio 2022" animate={true}>
+                                <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
+                            </CardBasic>
+                        </li>
+                        <li className='m-3 d-flex align-content-stretch'>
                             <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Periodo: Mayo 2022" animate={true}>
                                 <button type='button' className='btn btn-blue w-100 text-center'>Ver</button>
                             </CardBasic>

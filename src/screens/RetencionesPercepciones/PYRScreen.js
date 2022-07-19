@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from "react";
 import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -59,12 +60,21 @@ function a11yProps(index) {
   };
 }
 
+function HandleClick() {
+  rowsP = []
+  rowsR = []
+  File.saveDataToLocalStorage('percepciones', rowsP)
+  File.saveDataToLocalStorage('retenciones', rowsR)
+  console.log("perceps del borrar: " + File.getDataFromLocalStorage('percepciones'))
+
+}
+
 export default function BasicTabs() {
   const [value, setValue] = React.useState(0);
   const tbs = ["Percepciones", "Retenciones"];
   const [buttonText, setButtonText] = React.useState(tbs[0]);
   const [buttonRedirect, setButtonRedirect] = React.useState(tbs[0]);
-
+  
   const handleChange = (event, newValue) => {
     setValue(newValue);
     setButtonText(tbs[newValue])
@@ -167,9 +177,11 @@ export default function BasicTabs() {
               </Table>
             </TableContainer>
           </TabPanel>
+           
           <Link to={buttonRedirect} >
             <Button variant="contained" style={{ float: 'right' }} > Agregar {buttonText}</Button>
           </Link>
+            <Button variant="contained" style={{ float: 'right' }} onClick= { HandleClick }> Borrar {buttonText}</Button>
         </Box>
         <hr />
         <div className="d-flex flex-row">

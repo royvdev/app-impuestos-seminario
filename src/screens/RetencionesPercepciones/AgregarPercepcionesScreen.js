@@ -16,11 +16,11 @@ function writeToJson(){
   Object.keys(auxP).forEach(function(key) {
     rowsP.push(auxP[key]);
     });
-  rowsP.push({ "cuit": "20-123123-2",
-  "fecha": "06/07/2022",
+  rowsP.push({ "cuit": "20-34374609-2",
+  "fecha": "20/07/2022",
   "tipoComprobante": "A",
-  "nroComprobante": "123123",
-  "importe": "100"
+  "nroComprobante": "0001-0001",
+  "importe": "1000"
   });
   console.log('agregar: ' +rowsP)
   File.saveDataToLocalStorage('percepciones', rowsP)
@@ -91,7 +91,7 @@ return (
           label="Importe de Percepción"
           onChange={formik.handleChange}
         />
-        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/pyr" onClick={writeToJson} >
+        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/impuestos/IIBB/pyr" onClick={writeToJson} >
           Submit
         </Button>
       </form>

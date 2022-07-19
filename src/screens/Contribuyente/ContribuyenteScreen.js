@@ -24,8 +24,8 @@ export default function PerfilScreen() {
         email: "pablo@rubini.com.ar",
         cuil: "20-34374609-2",
         dni: "34374609",
-        regimen: "Monotributista",
-        categoria: "H",
+        regimen: "Monotributo",
+        categoria: "C",
         puntosVenta: [],
         contribuyentes: []
     }

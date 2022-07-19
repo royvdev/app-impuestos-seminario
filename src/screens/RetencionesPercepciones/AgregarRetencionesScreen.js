@@ -90,7 +90,7 @@ return (
           label="Importe de Retencion"
           onChange={formik.handleChange}
         />
-        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/pyr" onClick={writeToJson}>
+        <Button color="primary" variant="contained" fullWidth type="submit" component={Link} to="/impuestos/IIBB/pyr" onClick={writeToJson}>
           Submit
         </Button>
       </form>

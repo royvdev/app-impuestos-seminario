@@ -9,13 +9,13 @@ import { useNavigate } from "react-router-dom";
 
 const dummy = {
     "contribuyente": {
-        "nombre": "Jorge",
-        "apellido": "Fernandez",
-        "cuil": "20-41195789-3",
-        "regimen": "Monotributista",
-        "categoria": "B"
+        "nombre": "Pablo",
+        "apellido": "Rubini",
+        "cuil": "20-34374609-2",
+        "regimen": "Monotributo",
+        "categoria": "C"
     },
-    "ingresoAnioAnterior": 2500220,
+    "ingresoAnioAnterior": 20000,
     "puntosVenta": [
         {
             "id": 1,
@@ -142,11 +142,11 @@ export default function ResumenScreen() {
 
                 <CardBasic title="Informacion del contribuyente" className="mb-4">
                     <hr />
-                    <p><strong>Nombre: </strong>{impuestoData.contribuyente && impuestoData.contribuyente.nombre ? impuestoData.contribuyente.nombre : null}</p>
-                    <p><strong>Apellido: </strong>{impuestoData.contribuyente && impuestoData.contribuyente.apellido ? impuestoData.contribuyente.apellido : null}</p>
-                    <p><strong>CUIT/CUIL: </strong>{impuestoData.contribuyente && impuestoData.contribuyente.cuil ? impuestoData.contribuyente.cuil : null}</p>
-                    <p><strong>Regimen: </strong>{impuestoData.contribuyente && impuestoData.contribuyente.regimen ? impuestoData.contribuyente.regimen : null}</p>
-                    <p><strong>Categoria: </strong>{impuestoData.contribuyente && impuestoData.contribuyente.categoria ? impuestoData.contribuyente.categoria : null}</p>
+                    <p><strong>Nombre: </strong>{"Pablo"}</p>
+                    <p><strong>Apellido: </strong>{"Rubini"}</p>
+                    <p><strong>CUIT/CUIL: </strong>{"20-34374609-2"}</p>
+                    <p><strong>Regimen: </strong>{"Monotributo"}</p>
+                    <p><strong>Categoria: </strong>{"C"}</p>
                 </CardBasic>
 
                 <TablaResumen />
