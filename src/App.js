@@ -11,9 +11,16 @@ import LoginScreen from './screens/LoginScreen';
 import ImpuestosScreen from './screens/impuestos/ImpuestosScreen';
 import DashboardScreen from './screens/Dashboard-Contador/DashboardScreen';
 import PerfilScreen from './screens/usuario/PerfilScreen';
+import * as DB from './components/LocalStorageManager';
+import puntosVentaDummy from './data/data_dummy/puntosVentaDummy.json';
 
 function App() {
 	const [loguedUser, setLoguedUser] = useState(true);
+
+	if(!DB.getDataFromLocalStorage("puntosVenta")){
+		DB.saveDataToLocalStorage("puntosVenta",puntosVentaDummy);
+	}
+	
 
 	if (loguedUser) {
 		return (

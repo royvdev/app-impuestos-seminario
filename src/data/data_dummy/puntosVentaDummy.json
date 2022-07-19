@@ -1,0 +1,127 @@
+[
+    {
+        "numero": 1,
+        "direccion": "Mercedes 1890, Llavallol, Lomas de Zamora",
+        "provincia": {
+            "nombre_completo": "Provincia de Buenos Aires",
+            "fuente": "IGN",
+            "iso_id": "AR-B",
+            "nombre": "Buenos Aires",
+            "id": "06",
+            "categoria": "Provincia",
+            "iso_nombre": "Buenos Aires",
+            "centroide": {
+                "lat": -36.6769415180527,
+                "lon": -60.5588319815719
+            }
+        },
+        "actividad": {
+            "id": 649999,
+            "actividades": "Servicios de financiación y actividades financieras n.c.p.",
+            "categoria": "Finanzas",
+            "alicuota": 9,
+            "minimo": 1382,
+            "descripcion": "Servicios de financiación y actividades financieras n.c.p."
+        }
+    },
+    {
+        "numero": 2,
+        "direccion": "Bermudez 1622, Lomas de Zamora, Lomas de Zamora",
+        "provincia": {
+            "nombre_completo": "Provincia de Buenos Aires",
+            "fuente": "IGN",
+            "iso_id": "AR-B",
+            "nombre": "Buenos Aires",
+            "id": "06",
+            "categoria": "Provincia",
+            "iso_nombre": "Buenos Aires",
+            "centroide": {
+                "lat": -36.6769415180527,
+                "lon": -60.5588319815719
+            }
+        },
+        "actividad": {
+            "id": 682091,
+            "actividades": "Servicios prestados por inmobiliarias",
+            "categoria": "Finanzas",
+            "alicuota": 5,
+            "minimo": 1382,
+            "descripcion": "Servicios prestados por inmobiliarias"
+        }
+    },
+    {
+        "numero": 3,
+        "direccion": "Av. 14 1011, Berazategui Oeste, Berazategui",
+        "provincia": {
+            "nombre_completo": "Provincia de Buenos Aires",
+            "fuente": "IGN",
+            "iso_id": "AR-B",
+            "nombre": "Buenos Aires",
+            "id": "06",
+            "categoria": "Provincia",
+            "iso_nombre": "Buenos Aires",
+            "centroide": {
+                "lat": -36.6769415180527,
+                "lon": -60.5588319815719
+            }
+        },
+        "actividad": {
+            "id": 451191,
+            "actividades": "Venta de vehículos automotores, nuevos n.c.p.",
+            "categoria": "Finanzas",
+            "alicuota": 2.3,
+            "minimo": 1382,
+            "descripcion": "Venta de vehículos automotores, nuevos n.c.p."
+        }
+    },
+    {
+        "numero": 4,
+        "direccion": "Av. Juan B. Justo 2790, Ciudad Autonoma de Buenos Aires",
+        "provincia": {
+            "nombre_completo": "Ciudad Autónoma de Buenos Aires",
+            "fuente": "IGN",
+            "iso_id": "AR-C",
+            "nombre": "Ciudad Autónoma de Buenos Aires",
+            "id": "02",
+            "categoria": "Ciudad Autónoma",
+            "iso_nombre": "Ciudad Autónoma de Buenos Aires",
+            "centroide": {
+                "lat": -34.6144934119689,
+                "lon": -58.4458563545429
+            }
+        },
+        "actividad": {
+            "id": 649999.2,
+            "actividades": "Servicios de financiación y actividades financieras n.c.p.",
+            "categoria": "Finanzas",
+            "alicuota": 5.5,
+            "minimo": 1382,
+            "descripcion": "Servicios de financiación y actividades financieras n.c.p."
+        }
+    },
+    {
+        "numero": 5,
+        "direccion": "Av. Corriente 3650, Ciudad Autonoma de Buenos Aires",
+        "provincia": {
+            "nombre_completo": "Ciudad Autónoma de Buenos Aires",
+            "fuente": "IGN",
+            "iso_id": "AR-C",
+            "nombre": "Ciudad Autónoma de Buenos Aires",
+            "id": "02",
+            "categoria": "Ciudad Autónoma",
+            "iso_nombre": "Ciudad Autónoma de Buenos Aires",
+            "centroide": {
+                "lat": -34.6144934119689,
+                "lon": -58.4458563545429
+            }
+        },
+        "actividad": {
+            "id": 682091.2,
+            "actividades": "Servicios prestados por inmobiliarias",
+            "categoria": "Finanzas",
+            "alicuota": 1,
+            "minimo": 1382,
+            "descripcion": "Servicios prestados por inmobiliarias"
+        }
+    }
+]

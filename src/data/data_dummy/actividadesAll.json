@@ -1,5 +1,45 @@
 [
     {
+        "id": 649999,
+        "actividades": "Servicios de financiación y actividades financieras n.c.p.",
+        "categoria": "Finanzas",
+        "alicuota": 9,
+        "minimo": 1382,
+        "descripcion": "Servicios de financiación y actividades financieras n.c.p."
+    },
+    {
+        "id": 649999.2,
+        "actividades": "Servicios de financiación y actividades financieras n.c.p.",
+        "categoria": "Finanzas",
+        "alicuota": 5.5,
+        "minimo": 1382,
+        "descripcion": "Servicios de financiación y actividades financieras n.c.p."
+    },
+    {
+        "id": 682091,
+        "actividades": "Servicios prestados por inmobiliarias",
+        "categoria": "Finanzas",
+        "alicuota": 5,
+        "minimo": 1382,
+        "descripcion": "Servicios prestados por inmobiliarias"
+    },
+    {
+        "id": 682091.2,
+        "actividades": "Servicios prestados por inmobiliarias",
+        "categoria": "Finanzas",
+        "alicuota": 1,
+        "minimo": 1382,
+        "descripcion": "Servicios prestados por inmobiliarias"
+    },
+    {
+        "id": 451191,
+        "actividades": "Venta de vehículos automotores, nuevos n.c.p.",
+        "categoria": "Finanzas",
+        "alicuota": 2.3,
+        "minimo": 1382,
+        "descripcion": "Venta de vehículos automotores, nuevos n.c.p."
+    },
+    {
         "id": 11111,
         "actividades": "ACTIVIDADES PRIMARIAS",
         "categoria": "Agricultura",

@@ -50,7 +50,7 @@ class CsvToJson extends React.Component {
 
       // console.log(json_data); // shows data in json format
 
-      addUploadedData(this.props.key);
+      addUploadedData(this.props.key, this.props.setImpuestoData);
     };
     reader.readAsBinaryString(f);
   }

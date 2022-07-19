@@ -12,6 +12,10 @@ export default function SeleccionarPeriodoScreen() {
 
     const navigate = useNavigate();
 
+    saveDataToLocalStorage("selectedYear", 2022);
+    saveDataToLocalStorage("selectedMonth", 7);
+
+
     const dateList = [
         {
             id: 0, year: 2022, months: [

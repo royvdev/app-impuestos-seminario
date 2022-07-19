@@ -3,7 +3,9 @@ import { Link, NavLink } from 'react-router-dom'
 import CardBasic from "../../components/interfaz/CardBasic";
 import { Tooltip } from '@mui/material';
 import * as DB from '../../components/LocalStorageManager';
-import archivoPDF from '../../assets/Prueba.pdf';
+import archivoPDF from '../../assets/IIBB_Julio_2022.pdf';
+import { useNavigate } from "react-router-dom";
+
 
 const dummy = {
     "contribuyente": {
@@ -80,14 +82,18 @@ const dummy = {
 // Total facturado = total * alicuota - deducciones
 
 export default function ResumenScreen() {
+    const navigate = useNavigate();
     const impuestoData = DB.getDataFromLocalStorage("facturacionFormData");
     const periodo = {
         anio: DB.getDataFromLocalStorage("selectedYear"),
         mes: DB.getDataFromLocalStorage("selectedMonth")
     }
 
+    console.log("Impuesto", impuestoData)
+
     function handleFinalizarImpuesto() {
-        window.location.href(archivoPDF)
+        //window.location.href(archivoPDF);
+        navigate("/");
     }
 
     function TablaResumen(params) {
@@ -114,7 +120,7 @@ export default function ResumenScreen() {
                                 <tr key={i} className="row m-0">
                                     <td className="col">{element.actividad.id + " - " + element.actividad.descripcion.slice(0,100)+"..."}</td>
                                     <td className="col">{element.provincia.nombre}</td>
-                                    <td className="col">{"$-" + Intl.NumberFormat('es-AR').format(element.total)}</td>
+                                    <td className="col">{"$" + Intl.NumberFormat('es-AR').format(0)}</td>
                                     <td className="col">{"$" + Intl.NumberFormat('es-AR').format(element.total)}</td>
                                     <td className="col">{"%" + Intl.NumberFormat('es-AR').format(element.actividad.alicuota)}</td>
                                     <td className="col">{"$" + Intl.NumberFormat('es-AR').format(element.total * (element.actividad.alicuota / 100))}</td>

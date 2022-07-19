@@ -8,86 +8,88 @@ import * as DB from '../../components/LocalStorageManager';
 import CSVImportButton from "../../components/csvToJSON";
 import {getDataFromLocalStorage} from "../../components/LocalStorageManager.js";
 
-const dummy_data = {
-    ingresoAnioAnterior: 2500220,
-    puntosVenta: [
-        {
-            id: 1,
-            numero: 111,
-            provincia: {
-                id: 1,
-                nombre: "Buenos Aires"
-            }
-        },
-        {
-            id: 2,
-            numero: 121,
-            provincia: {
-                id: 1,
-                nombre: "Buenos Aires"
-            }
-        }
-    ]
-}
-
 function inicializarFormData(params) {
     DB.saveDataToLocalStorage("facturacionFormData", {
-        ingresoAnioAnterior: 0,
-        totalesPorProvincia: []
+        ingresoAnioAnterior: 20000,
+        totalesPorProvincia: [],
+        contribuyente: DB.getDataFromLocalStorage("usuarioPerfil")
     });
 }
-export function addUploadedData(key) {
+
+const provinciasList = provincias.sort((a, b) => {
+    if (a.nombre < b.nombre) {
+        return -1;
+    }
+    if (a.nombre > b.nombre) {
+        return 1;
+    }
+    return 0;
+});
+
+export function addUploadedData(key, setImpuestoData) {
     const data = getDataFromLocalStorage(key);
     const json_facturas = JSON.parse(data);
-
-    console.log(json_facturas);
-
-    var totales_pv = {};
+    var totales_pv = [];
+    
 
     json_facturas.forEach(factura => {
-        var punto_venta = factura['Punto de Venta'];
-        var total_no_gravado = factura['Imp. Neto No Gravado'];
+        const punto_venta = factura['Punto de Venta'];
+        const total_gravado = factura['Imp. Neto Gravado'];
+        const total_no_gravado = factura['Imp. Neto No Gravado'];
 
-        var previous_value = (punto_venta in totales_pv) ? totales_pv[punto_venta] : 0;
+        const registro_anterior_index = totales_pv.findIndex(element => {return String(element.punto_venta) === String(punto_venta)});
+        //const punto_venta_obj = DB.getDataFromLocalStorage("puntosVenta").filter(element => String(element.numero) === String(punto_venta))[0];
 
-        totales_pv[punto_venta] = parseFloat(total_no_gravado) + previous_value;
-    });
- 
-    Object.keys(totales_pv).forEach(pv => {
-        var monto_total = totales_pv[pv];
-
-        console.log('punto de venta: ' + pv + ' / total: ' + monto_total);
-
-        // const newList = this.CargaFacturasScreen.provinciasList.filter(data => data.id !== e.target.inputProvincia.value);
-        // const provincia = this.CargaFacturasScreen.provinciasList.filter(data => data.id === e.target.inputProvincia.value)[0];
+        if(registro_anterior_index >= 0){
+            totales_pv[registro_anterior_index].totales += parseFloat(total_gravado) + parseFloat(total_no_gravado);
+        }
+        else{
+            totales_pv = [...totales_pv, {
+                punto_venta: punto_venta,
+                totales: (parseFloat(total_gravado) + parseFloat(total_no_gravado))
+            }];
+        }
         
-        // const montoTotal = Number.parseInt(e.target.inputMontoTotal.value);
-
-        const totales = {
-            provincia: pv,
-            total: monto_total
-        };
-
-        console.log("Totales por PV", totales);
-        // setProvinciasList(newList);
-        // let newData = impuestoData;
-        // newData.totalesPorProvincia.push(totales);
-        // setImpuestoData(newData);
     });
 
+    //  Matcheo de puntos de venta obtenidos con los objetos "puntoVenta" cargados por ABM: 
 
+    const puntosVentaAll = DB.getDataFromLocalStorage("puntosVenta");
+
+    for(var i = 0; i < totales_pv.length; i++){
+        const punto_venta_obj = puntosVentaAll.filter(element => String(element.numero) === String(totales_pv[i].punto_venta))[0];
+        if(punto_venta_obj){
+            totales_pv[i].punto_venta = punto_venta_obj;
+        }
+    }
+
+    console.log("Totales por PV", totales_pv);
+
+    // Matcheo con la lista de totales que ya esta en la tabla:
+
+    var impuestoData = DB.getDataFromLocalStorage("facturacionFormData");
+    console.log("Tabla:", impuestoData);
+    console.log("Puntos de venta", puntosVentaAll)
+
+    for(var i = 0; i < totales_pv.length ; i++){
+        const actividad_obj = puntosVentaAll.filter(data => String(data.numero) === String(totales_pv[i].punto_venta.numero))[0].actividad;
+        const provincia_obj = provinciasList.filter(data => String(data.id) === String(totales_pv[i].punto_venta.provincia.id))[0];
+
+        impuestoData.totalesPorProvincia = [...impuestoData.totalesPorProvincia, {
+            actividad: actividad_obj,
+            provincia: provincia_obj,
+            total: totales_pv[i].totales
+        }];
+    }
+
+    console.log("Asi me quedo para guardar:", impuestoData);
+
+    DB.saveDataToLocalStorage("facturacionFormData", impuestoData);
+    setImpuestoData({...impuestoData});
 };
 
 export default function CargaFacturasScreen() {
-    const provinciasList = provincias.sort((a, b) => {
-        if (a.nombre < b.nombre) {
-            return -1;
-        }
-        if (a.nombre > b.nombre) {
-            return 1;
-        }
-        return 0;
-    });
+    
     //const actividadesList = actividades.sort((a, b) => { return a.id - b.id; });
     const puntosVenta = DB.getDataFromLocalStorage("puntosVenta");
     const [cargaManualActive, setCargaManualActive] = useState(false);
@@ -231,7 +233,7 @@ export default function CargaFacturasScreen() {
                         newData.push(impuestoData.totalesPorProvincia[i]);
                     }
                 }
-
+                DB.saveDataToLocalStorage("facturacionFormData", { ...impuestoData, totalesPorProvincia: newData });
                 setImpuestoData({ ...impuestoData, totalesPorProvincia: newData });
             };
 
@@ -286,7 +288,7 @@ export default function CargaFacturasScreen() {
                             <h6 className="card-subtitle mb-2 text-danger">(Opcion recomendada)</h6>
                             <p className="card-text">Realiza el calculo automaticamente a partir de la suma de los totales de factura</p>
                         </div>
-                        <CSVImportButton key="facturas"/>
+                        <CSVImportButton key="facturas" setImpuestoData={setImpuestoData}/>
                     </CardBasic>
                 </section>
                 <section className="w-50 ml-2">

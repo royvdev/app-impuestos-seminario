@@ -6,6 +6,7 @@ import { Autocomplete, TextField, Tooltip } from "@mui/material";
 import actividades from '../../data/data_dummy/actividadesAll.json';
 import provincias from '../../data/data_dummy/provincias.json';
 import { Box } from "@mui/system";
+import usuarioDummy from '../../data/data_dummy/usuarioDummy.json'
 
 export default function PerfilScreen() {
     const provinciasList = provincias.sort((a, b) => {
@@ -21,20 +22,19 @@ export default function PerfilScreen() {
     const [userFormData, setUserFormData] = useState(DB.getDataFromLocalStorage("usuarioPerfil"));
     const puntosVenta = DB.getDataFromLocalStorage("puntosVenta");
 
-    console.log("Puntos de venta:", puntosVenta)
-
     if (!userFormData) {
-        DB.saveDataToLocalStorage("usuarioPerfil", {
-            nombre: "",
-            apellido: "",
-            email: "",
-            cuil: "",
-            dni: "",
-            regimen: "",
-            categoria: "",
-            puntosVenta: [],
-            contribuyentes: []
-        });
+        // DB.saveDataToLocalStorage("usuarioPerfil", {
+        //     nombre: "",
+        //     apellido: "",
+        //     email: "",
+        //     cuil: "",
+        //     dni: "",
+        //     regimen: "",
+        //     categoria: "",
+        //     puntosVenta: [],
+        //     contribuyentes: []
+        // });
+        DB.saveDataToLocalStorage("usuarioPerfil", usuarioDummy);
         setUserFormData(DB.getDataFromLocalStorage("usuarioPerfil"));
     }
 
