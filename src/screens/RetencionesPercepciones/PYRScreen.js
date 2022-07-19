@@ -73,8 +73,8 @@ export default function BasicTabs() {
 
   if (!File.getDataFromLocalStorage('percepciones') && !File.getDataFromLocalStorage('retenciones')) {
     
-    File.saveDataToLocalStorage('percepciones', require('./percepciones.json'))
-    File.saveDataToLocalStorage('retenciones', require('./retenciones.json'))
+    File.saveDataToLocalStorage('percepciones', require('../../data/data_dummy/percepciones.json'))
+    File.saveDataToLocalStorage('retenciones', require('../../data/data_dummy/retenciones.json'))
     const auxP = File.getDataFromLocalStorage('percepciones')
     const auxR = File.getDataFromLocalStorage('retenciones')
 

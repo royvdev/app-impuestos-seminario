@@ -2,6 +2,8 @@ import CardBasic from "../../components/interfaz/CardBasic";
 import {Link, Route, Routes } from 'react-router-dom';
 import React from "react";
 import DashboardMainScreen from "./DashboardMainScreen";
+import Box from '@mui/material/Box';
+
 
 function DashboardScreen() {
     const MainScreen = () => {
@@ -12,40 +14,16 @@ function DashboardScreen() {
                 <hr />
                 <ul className='d-flex flex-wrap list-unstyled'>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Item Dashboard 1" subtitle="Vencimiento: 30/06/2022">
-                            <Link to="">
+                        <CardBasic title="Pablo Rubini" subtitle="Vencimiento: 31/07/2022">
+                            <Link to="/contribuyente">
+                                <Box sx={{ marginBottom: '3px' }} ><button type='button' className='btn btn-success w-100 text-center'  >Ver Perfil </button></Box>
+                            </Link>
+                            <Link to="/impuestos">
                                 <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
                             </Link>
                         </CardBasic>
                     </li>
-                    <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Item Dashboard 2" subtitle="Vencimiento: 30/06/2022">
-                            <Link to="">
-                                <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
-                            </Link>
-                        </CardBasic>
-                    </li>
-                    <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Item Dashboard 3" subtitle="Vencimiento: 30/06/2022">
-                            <Link to="">
-                                <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
-                            </Link>
-                        </CardBasic>
-                    </li>
-                    <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Item Dashboard 4" subtitle="Vencimiento: 30/06/2022">
-                            <Link to="">
-                                <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
-                            </Link>
-                        </CardBasic>
-                    </li>
-                    <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Item Dashboard 5" subtitle="Vencimiento: 30/06/2022">
-                            <Link to="">
-                                <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
-                            </Link>
-                        </CardBasic>
-                    </li>
+                    
                 </ul>
             </article>
             </React.Fragment>

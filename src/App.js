@@ -16,6 +16,7 @@ import puntosVentaDummy from './data/data_dummy/puntosVentaDummy.json';
 import PyrScreen from './screens/RetencionesPercepciones/PYRScreen';
 import AgregarPercepcionesScreen from './screens/RetencionesPercepciones/AgregarPercepcionesScreen';
 import AgregarRetencionesScreen from './screens/RetencionesPercepciones/AgregarRetencionesScreen';
+import ContribuyenteScreen from './screens/Contribuyente/ContribuyenteScreen';
 
 function App() {
 	const [loguedUser, setLoguedUser] = useState(true);
@@ -41,6 +42,7 @@ function App() {
 							<Route path="pyr" element={<PyrScreen />} />
 							<Route path="pyr/percepciones" element={<AgregarPercepcionesScreen />} />
 							<Route path="pyr/retenciones" element={<AgregarRetencionesScreen />} />
+							<Route path="contribuyente" element={<ContribuyenteScreen />} />
 						</Routes>
 					</main>
 				</div>
