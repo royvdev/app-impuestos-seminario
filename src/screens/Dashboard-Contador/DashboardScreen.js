@@ -14,7 +14,7 @@ function DashboardScreen() {
                 <hr />
                 <ul className='d-flex flex-wrap list-unstyled'>
                     <li className='m-3 d-flex align-content-stretch'>
-                        <CardBasic title="Pablo Rubini" subtitle="Vencimiento: 31/07/2022">
+                        <CardBasic title="Pablo Rubini" subtitle="Vencimiento: 29/07/2022">
                             <Link to="/contribuyente">
                                 <Box sx={{ marginBottom: '3px' }} ><button type='button' className='btn btn-success w-100 text-center'  >Ver Perfil </button></Box>
                             </Link>

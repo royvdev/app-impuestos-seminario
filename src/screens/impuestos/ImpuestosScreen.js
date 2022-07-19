@@ -13,7 +13,7 @@ function ImpuestosScreen() {
                     <hr />
                     <ul className='d-flex flex-wrap list-unstyled'>
                         <li className='m-3 d-flex align-content-stretch'>
-                            <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Vencimiento: 30/06/2022" animate={true}>
+                            <CardBasic className="impuestos__card" title="Declaracion Jurada IIBB" subtitle="Vencimiento: 29/07/2022" animate={true}>
                                 <Link to="IIBB">
                                     <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
                                 </Link>

@@ -34,8 +34,8 @@ function App() {
 					<StatusBar />
 					<main>
 						<Routes>
-							<Route index element={<HomeScreen />} />
-							<Route path="inicio" element={<HomeScreen />} />
+							<Route index element={<DashboardScreen />} />
+							<Route path="inicio" element={<DashboardScreen />} />
 							<Route path="impuestos/*" element={<ImpuestosScreen />} />
 							<Route path="dashboard/*" element={<DashboardScreen />} />
 							<Route path="perfil" element={<PerfilScreen />} />

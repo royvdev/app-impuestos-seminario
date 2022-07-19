@@ -39,7 +39,7 @@ function Sidebar({ setUser }) {
                 </ul>
                 <ul>
                     <li>
-                        <NavLink to="/perfil">
+                        <NavLink to="">
                             <button type="button" className="btn btn-secondary">Mi perfil</button>
                         </NavLink>
                     </li>
