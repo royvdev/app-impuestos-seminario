@@ -4,21 +4,26 @@ import * as yup from 'yup';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import {Link} from 'react-router-dom';
-import * as file from '../../components/LocalStorageManager';
+import * as File from '../../components/LocalStorageManager';
 
-var rowsP = require('./percepciones.json')
+
 
 function writeToJson(){
-  rowsP.push({ "cuit": "20-322329-2",
-  "fecha": "15/02/1989",
+  let rowsP = []
+
+  const auxP = File.getDataFromLocalStorage('percepciones')
+
+  Object.keys(auxP).forEach(function(key) {
+    rowsP.push(auxP[key]);
+    });
+  rowsP.push({ "cuit": "20-123123-2",
+  "fecha": "06/07/2022",
   "tipoComprobante": "A",
   "nroComprobante": "123123",
-  "importe": "105.32"
+  "importe": "100"
   });
-  // console.log(rowsP);
-  let json = JSON.stringify(rowsP);
-  console.log(json)
-  file.saveDataToLocalStorage('percepciones.json', {json})
+  console.log('agregar: ' +rowsP)
+  File.saveDataToLocalStorage('percepciones', rowsP)
 }
 
 const validationSchema = yup.object({
