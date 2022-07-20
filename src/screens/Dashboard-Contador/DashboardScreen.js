@@ -23,6 +23,36 @@ function DashboardScreen() {
                             </Link>
                         </CardBasic>
                     </li>
+                    <li className='m-3 d-flex align-content-stretch'>
+                        <CardBasic title="Camila Olivo" subtitle="Vencimiento: 29/07/2022">
+                            <Link to="/contribuyente">
+                                <Box sx={{ marginBottom: '3px' }} ><button type='button' className='btn btn-success w-100 text-center'  >Ver Perfil </button></Box>
+                            </Link>
+                            <Link to="/impuestos">
+                                <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
+                            </Link>
+                        </CardBasic>
+                    </li>
+                    <li className='m-3 d-flex align-content-stretch'>
+                        <CardBasic title="Enrique Mastrangelo" subtitle="Vencimiento: 29/07/2022">
+                            <Link to="/contribuyente">
+                                <Box sx={{ marginBottom: '3px' }} ><button type='button' className='btn btn-success w-100 text-center'  >Ver Perfil </button></Box>
+                            </Link>
+                            <Link to="/impuestos">
+                                <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
+                            </Link>
+                        </CardBasic>
+                    </li>
+                    <li className='m-3 d-flex align-content-stretch'>
+                        <CardBasic title="Luis Zuniga" subtitle="Vencimiento: 29/07/2022">
+                            <Link to="/contribuyente">
+                                <Box sx={{ marginBottom: '3px' }} ><button type='button' className='btn btn-success w-100 text-center'  >Ver Perfil </button></Box>
+                            </Link>
+                            <Link to="/impuestos">
+                                <button type='button' className='btn btn-success w-100 text-center'>Declarar</button>
+                            </Link>
+                        </CardBasic>
+                    </li>
                     
                 </ul>
             </article>

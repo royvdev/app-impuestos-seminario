@@ -1,14 +1,1 @@
-[
-  { "cuit": "20-34374609-2",
-    "fecha": "15/02/1989",
-    "nroSucursal": "123123",
-    "nroEmision": "1",
-    "importe": "105.32"
-  },
-  { "cuit": "20-34374609-2",
-    "fecha": "15/02/1989",
-    "nroSucursal": "123123",
-    "nroEmision": "2",
-    "importe": "105.32"
-  }
-]
+[]
